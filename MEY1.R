@@ -1,8 +1,7 @@
-rm(list=ls(all=TRUE)) 
-dev.off()
+rm(list=ls()) 
 library(pracma)
 #RAMdata = read.csv('../Data/RAM Stock Parameters.csv',stringsAsFactors=F)
-DANdata = read.csv('C:/Users/chris/Dropbox/GitHub/Data/Policies and Params for Chris.csv',stringsAsFactors=F)
+DANdata = read.csv('Data/Policies and Params for Chris.csv',stringsAsFactors=F)
 
 Fisheries = unique(DANdata$IdOrig)
 MEYdata = data.frame(matrix(NA,nrow=length(Fisheries),ncol=7))
@@ -51,7 +50,9 @@ for (i in seq(1,length(Fisheries),1))
   grow_disc[i] = ((phi+1)/phi)*g
 }
 
-MEYdata = cbind(Fisheries,current_b,current_f,b_mey,f_mey,current_b_mey, current_f_mey)
+MEYdata = data.frame(Fisheries,current_b,current_f,b_mey,f_mey,current_b_mey, current_f_mey)
 write.csv(MEYdata,file='MEY_results.csv')
+
+# Match to NEIs
 
 

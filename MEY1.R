@@ -103,5 +103,7 @@ ggsave('Kobe Comparison.pdf', kobes)
 
 # Match to NEIs
 
+thing=7
+thing2=9
 
 

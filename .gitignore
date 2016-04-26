@@ -1,4 +1,5 @@
 **/*.Rproj
+**/*.pdf
 
 # Windows image file caches
 Thumbs.db

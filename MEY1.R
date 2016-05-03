@@ -1,4 +1,5 @@
 rm(list=ls())
+tic <- proc.time()
 library(pracma)
 library(ggplot2)
 library(dplyr)
@@ -70,6 +71,7 @@ for (i in seq(1,length(Fisheries),1))
   current_f_mey[i] = DANsub$FvFmsy[1]/fmey #F/Fmey
   grow_disc[i] = ((phi+1)/phi)*g
 }
+proc.time()  - tic
 
 MEYdata = data.frame(IdOrig = Fisheries,current_b,current_f,
                      b_mey,f_mey,current_b_mey, current_f_mey)
@@ -100,6 +102,7 @@ kobes <- arrangeGrob(kobe_msy, kobe_mey)
 grid.draw(kobes)
 
 ggsave('Kobe Comparison.pdf', kobes)
+
 
 # Match to NEIs
 
